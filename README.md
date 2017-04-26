@@ -1,6 +1,6 @@
-# admin-web
+# VUE-ACT-WEB
 
-> admin-web vue bootstrap
+> VUE-ACT-WEB vue bootstrap
 
 ## Build Setup
 
