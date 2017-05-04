@@ -1,24 +1,29 @@
 <template>
-  <div class="desc" style="height: 360px">
-    <div class="col-md-6">
-      <div class="panel panel-default" style="height: 360px">
-        <div class="panel-heading font-bold">图表-柱状图</div>
-        <div class="panel-body" style="height: 300px">
-          <IEcharts :option="bar" :loading="loading" @ready="onReady" @click="onClick"></IEcharts>
-        </div>
-        <div class="panel-footer">
-          <button class="btn btn-primary btn-addon btn-sm" @click="doRandom">变变变</button>
+  <div>
+    <div class="bg-light lter b-b wrapper-md">
+      <h1 class="m-n font-thin h3">vue-echarts-v3展示</h1>
+    </div>
+    <div class="desc" style="height: 360px">
+      <div class="col-md-6">
+        <div class="panel panel-default" style="height: 360px">
+          <div class="panel-heading font-bold">图表-柱状图</div>
+          <div class="panel-body" style="height: 300px">
+            <IEcharts :option="bar" :loading="loading" @ready="onReady" @click="onClick"></IEcharts>
+          </div>
+          <div class="panel-footer">
+            <button class="btn btn-primary btn-addon btn-sm" @click="doRandom">变变变</button>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-md-6">
-      <div class="panel panel-default" style="height: 360px">
-        <div class="panel-heading font-bold">图表-折线图</div>
-        <div class="panel-body" style="height: 300px">
-          <IEcharts :option="line" :loading="loading" @ready="onReady" @click="onClick"></IEcharts>
-        </div>
-        <div class="panel-footer">
-          <button class="btn btn-danger btn-addon btn-sm" @click="doLine">变变变</button>
+      <div class="col-md-6">
+        <div class="panel panel-default" style="height: 360px">
+          <div class="panel-heading font-bold">图表-折线图</div>
+          <div class="panel-body" style="height: 300px">
+            <IEcharts :option="line" :loading="loading" @ready="onReady" @click="onClick"></IEcharts>
+          </div>
+          <div class="panel-footer">
+            <button class="btn btn-danger btn-addon btn-sm" @click="doLine">变变变</button>
+          </div>
         </div>
       </div>
     </div>

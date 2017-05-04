@@ -35,13 +35,13 @@
         <i class="glyphicon glyphicon-stats icon text-primary-dker"></i>
         <span class="font-bold">Grid组件</span>
         <bs-submenu slot="child">
-          <bs-submenu-item pager-router="test">
+          <bs-submenu-item pager-router="staticTable">
               <span>Grid组件-staticTable</span>
           </bs-submenu-item>
           <bs-submenu-item pager-router="elDatatable">
               <span>Grid组件-ELTable</span>
           </bs-submenu-item>
-          <bs-submenu-item>
+          <bs-submenu-item pager-router="datatable">
             <span>Grid组件-DataTable</span>
           </bs-submenu-item>
         </bs-submenu>

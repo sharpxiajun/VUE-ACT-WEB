@@ -1,5 +1,5 @@
 <template>
-  <div class="progress ng-isolate-scope" :class="progressCls">
+  <div class="progress" :class="progressCls">
     <div class="progress-bar" :class="progressColor" :style="widthValue"></div>
   </div>
 </template>
@@ -10,7 +10,7 @@
         name:"xiajun"
       }
     },
-    props:["cls","percentage","type"],
+    props:["cls","percentage","type","childCls"],
     computed:{
       progressCls(){
         let retObj = {};
@@ -32,6 +32,13 @@
         let retObj = {};
         if (this.type){
           retObj["progress-bar-" + this.type] = true;
+        }
+        if (this.childCls){
+          console.log(this.childCls.split(/[ ]+/));
+          let arr = this.childCls.split(/[ ]+/);
+          for (let val of arr){
+            retObj[val] = true;
+          }
         }
         return retObj;
       }

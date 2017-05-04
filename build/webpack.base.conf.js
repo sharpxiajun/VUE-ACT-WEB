@@ -8,9 +8,22 @@ function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
 
+var appEntryJs = './src/main.js';
+
+switch (process.env.NODE_ENV){
+  case "development-elementUI":
+    appEntryJs = config.devElem.entryAppJs;
+    break;
+  case "development":
+    appEntryJs = config.dev.entryAppJs;
+    break;
+}
+console.log("++++++::::" + process.env.NODE_ENV)
+console.log("++++++::::" + appEntryJs)
+
 module.exports = {
   entry: {
-    app: './src/main.js'
+    app: appEntryJs
   },
   output: {
     path: config.build.assetsRoot,

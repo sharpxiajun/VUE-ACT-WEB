@@ -1,47 +1,38 @@
+/**
+ * Created by 俊 on 2017/5/3.
+ */
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
-import App from './AppView'
+import App from './AppElemView'
 import Vuex from 'vuex';
 import VueRouter from 'vue-router';
-import routes from './router'
+import routes from './elemsui/router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
-import DataTables from 'vue-data-tables'
-import axios from 'axios'
+import store from './elemsui/elvuex/store'
+
+//添加mockjs拦截请求，模拟返回服务器数据，联调测试时候最好注释掉
+import xjmock from './elemsui/mock/mock.xiajun'
+import fmjmock from './elemsui/mock/mock.fuminjie'
 
 Vue.use(VueRouter);
 Vue.use(Vuex);
 Vue.use(ElementUI)
-Vue.use(DataTables);
 
 // Routing logic
 var router = new VueRouter({
   routes: routes,
-/*  mode: 'history',*/
   scrollBehavior: function (to, from, savedPosition) {
     return savedPosition || { x: 0, y: 0 }
   }
 })
 
-const  vuex_store = new Vuex.Store({
-  state:{
-    test:"",
-    curMenuIndex:"0"
-  },
-  mutations:{
-    testftn(state){
-      alert(state.test);
-    }
-  }
-});
-
-Vue.prototype.$http = axios;
-
 new Vue({
   el: '#app',
   router,
-  store:vuex_store,
+  store,
   template: '<App/>',
   components: {App}
 });
+

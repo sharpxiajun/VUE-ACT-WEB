@@ -4,101 +4,93 @@
       <panel>
         <panel-header slot="header">
           <span class="label bg-danger pull-right m-t-xs">4 left</span>
-          Tasks
+          Table-进度条效果
         </panel-header>
         <table class="table table-striped m-b-none">
           <thead>
           <tr>
-            <th>Progress</th>
-            <th>Item</th>
+            <th>进度条</th>
+            <th>描述</th>
           </tr>
           </thead>
           <tbody>
           <tr>
             <td>
-              <div class="progress progress-sm progress-striped active m-t-xs m-b-none">
-                <div class="progress-bar bg-success" data-toggle="tooltip" data-original-title="80%" style="width: 80%"></div>
-              </div>
+              <progress-bar percentage="80%" childCls="bg-success" cls="progress-sm progress-striped active m-t-xs m-b-none"></progress-bar>
             </td>
-            <td>App prototype design</td>
+            <td>绿色，进度80%</td>
           </tr>
           <tr>
             <td>
-              <div class="progress progress-xs m-t-xs m-b-none">
-                <div class="progress-bar bg-info" data-toggle="tooltip" data-original-title="40%" style="width: 40%"></div>
-              </div>
+              <progress-bar percentage="40%" childCls="bg-info" cls="progress-xs m-t-xs m-b-none"></progress-bar>
             </td>
-            <td>Design documents</td>
+            <td>蓝色，进度40%</td>
           </tr>
           <tr>
             <td>
-              <div class="progress progress-xs m-t-xs m-b-none">
-                <div class="progress-bar bg-warning" data-toggle="tooltip" data-original-title="20%" style="width: 20%"></div>
-              </div>
+              <progress-bar percentage="20%" childCls="bg-warning" cls="progress-xs m-t-xs m-b-none"></progress-bar>
             </td>
-            <td>UI toolkit</td>
+            <td>黄色，进度20%</td>
           </tr>
           <tr>
             <td>
-              <div class="progress progress-xs m-t-xs m-b-none">
-                <div class="progress-bar bg-danger" data-toggle="tooltip" data-original-title="15%" style="width: 15%"></div>
-              </div>
+              <progress-bar percentage="15%" childCls="bg-danger" cls="progress-xs m-t-xs m-b-none"></progress-bar>
             </td>
-            <td>Testing</td>
+            <td>红色，进度15%</td>
           </tr>
           </tbody>
         </table>
         <panel-footer slot="footer">
-          Task
+          Table-进度条效果
         </panel-footer>
       </panel>
     </div>
     <div class="col-sm-6">
       <panel>
         <panel-header slot="header">
-          Stats
+          Table-统计图
         </panel-header>
         <table class="table table-striped m-b-none">
           <thead>
             <tr>
-              <th style="width:60px;" class="text-center">Graph</th>
-              <th>Item</th>
+              <th style="width:60px;" class="text-center">图表</th>
+              <th>描述</th>
               <th style="width:70px;"></th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>
-                <div class="sparkline inline">loading...</div>
+                <jq-sparkline :params="{type:'bar',height:19,barWidth:4,barSpacing:2,barColor:'#27c24c'}" :data="[16,15,15,14,17,18,16,15,16]">loading...</jq-sparkline>
               </td>
-              <td>App downloads</td>
+              <td>柱状图</td>
               <td class="text-success">
                 <i class="fa fa-level-up"></i> 40%
               </td>
             </tr>
             <tr>
               <td class="text-center">
-                <div class="sparkline inline">loading...</div>
+                <jq-sparkline :params="{type:'pie',height:19,sliceColors:['#23b7e5','#fff','#fad733']}" :data="[60,30,10]">loading...</jq-sparkline>
               </td>
-              <td>Social connection</td>
+              <td>饼状图</td>
               <td class="text-success">
                 <i class="fa fa-level-up"></i> 20%
               </td>
             </tr>
             <tr>
               <td>
-                <div class="sparkline inline">loading...</div>
+                <jq-sparkline :data="[ 16,15,15,14,17,18,16,15,16 ]" :params="{type:'line', height:19, width:60, lineColor:'#7266ba', fillColor:'#fff'}" >loading...</jq-sparkline>
               </td>
-              <td>Revenue</td>
+              <td>折线图</td>
               <td class="text-warning">
                 <i class="fa fa-level-down"></i> 5%
               </td>
             </tr>
             <tr>
               <td>
-                <div class="sparkline inline">loading...</div>
+                <jq-sparkline :data="[ 16,15,15,14,17,18,16,15,16 ]" :params="{type:'discrete', height:19, width:60, lineColor:'#27c24c'}">loading...</jq-sparkline>
               </td>
-              <td>Customer increase</td>
+              <td>散点图</td>
               <td class="text-danger">
                 <i class="fa fa-level-down"></i> 20%
               </td>
@@ -106,7 +98,7 @@
           </tbody>
         </table>
         <panel-footer slot="footer">
-          Stats
+          Table-统计图
         </panel-footer>
       </panel>
     </div>
@@ -123,15 +115,15 @@
                 <option value="2">Bulk edit</option>
                 <option value="3">Export</option>
               </select>
-              <button class="btn btn-sm btn-default">Apply</button>
+              <button class="btn btn-sm btn-default">过滤</button>
             </div>
             <div class="col-sm-4">
             </div>
             <div class="col-sm-3">
               <div class="input-group">
-                <input type="text" class="input-sm form-control" placeholder="Search">
+                <input type="text" class="input-sm form-control" placeholder="搜索...">
           <span class="input-group-btn">
-            <button class="btn btn-sm btn-default" type="button">Go!</button>
+            <button class="btn btn-sm btn-default" type="button">确定</button>
           </span>
               </div>
             </div>
@@ -145,9 +137,9 @@
                     <input type="checkbox"><i></i>
                   </label>
                 </th>
-                <th>Project</th>
-                <th>Task</th>
-                <th>Date</th>
+                <th>项目</th>
+                <th>任务</th>
+                <th>日期</th>
                 <th style="width:30px;"></th>
               </tr>
               </thead>
@@ -156,72 +148,72 @@
                 <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
                 <td>Idrawfast</td>
                 <td>4c</td>
-                <td>Jul 25, 2013</td>
+                <td>{{now}}</td>
                 <td>
-                  <a href class="active" ui-toggle-class><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
+                  <a href class="active" ><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
                 </td>
               </tr>
               <tr>
                 <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
                 <td>Formasa</td>
                 <td>8c</td>
-                <td>Jul 22, 2013</td>
+                <td>{{now}}</td>
                 <td>
-                  <a href ui-toggle-class><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
+                  <a href ><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
                 </td>
               </tr>
               <tr>
                 <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
                 <td>Avatar system</td>
                 <td>15c</td>
-                <td>Jul 15, 2013</td>
+                <td>{{now}}</td>
                 <td>
-                  <a href class="active" ui-toggle-class><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
+                  <a href class="active" ><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
                 </td>
               </tr>
               <tr>
                 <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
                 <td>Throwdown</td>
                 <td>4c</td>
-                <td>Jul 11, 2013</td>
+                <td>{{now}}</td>
                 <td>
-                  <a href class="active" ui-toggle-class><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
+                  <a href class="active" ><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
                 </td>
               </tr>
               <tr>
                 <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
                 <td>Idrawfast</td>
                 <td>4c</td>
-                <td>Jul 7, 2013</td>
+                <td>{{now}}</td>
                 <td>
-                  <a href class="active" ui-toggle-class><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
+                  <a href class="active" ><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
                 </td>
               </tr>
               <tr>
                 <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
                 <td>Formasa</td>
                 <td>8c</td>
-                <td>Jul 3, 2013</td>
+                <td>{{now}}</td>
                 <td>
-                  <a href class="active" ui-toggle-class><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
+                  <a href class="active" ><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
                 </td>
               </tr>
               <tr>
                 <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
                 <td>Avatar system</td>
                 <td>15c</td>
-                <td>Jul 2, 2013</td>
+                <td>{{now}}</td>
                 <td>
-                  <a href class="active" ui-toggle-class><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
+                  <a href class="active" ><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
                 </td>
               </tr>
               <tr>
                 <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
                 <td>Videodown</td>
                 <td>4c</td>
-                <td>Jul 1, 2013</td>
+                <td>{{now}}</td>
                 <td>
-                  <a href class="active" ui-toggle-class><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
+                  <a href class="active" ><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
                 </td>
               </tr>
               </tbody>
@@ -236,10 +228,10 @@
                   <option value="2">Bulk edit</option>
                   <option value="3">Export</option>
                 </select>
-                <button class="btn btn-sm btn-default">Apply</button>
+                <button class="btn btn-sm btn-default">过滤</button>
               </div>
               <div class="col-sm-4 text-center">
-                <small class="text-muted inline m-t-sm m-b-sm">showing 20-30 of 50 items</small>
+                <small class="text-muted inline m-t-sm m-b-sm">显示20-30条，总共50条</small>
               </div>
               <div class="col-sm-4 text-right text-center-xs">
                 <ul class="pagination pagination-sm m-t-none m-b-none">
@@ -261,15 +253,22 @@
 <script>
   import panel from '../panel/panel.vue';
   import panelHeader from '../panel/panel-header.vue';
-  import panelFooter from '../panel/panel-footer.vue'
+  import panelFooter from '../panel/panel-footer.vue';
+  import jqSparkline from '../jquerysparkline/jq-sparkline.vue';
+  import progressBar from '../progressbar/progressbar.vue';
+  import moment from '../../../node_modules/moment/moment'
   export default {
     data() {
       return {
-        msg: 'Hello ACT-VUE!'
+        msg: 'Hello ACT-VUE!',
+        now:""
       }
     },
     components:{
-      panel,panelHeader,panelFooter
+      panel,panelHeader,panelFooter,jqSparkline,progressBar,moment
+    },
+    mounted() {
+      this.now = moment().format('YYYY-MM-DD HH:mm:ss');
     }
   }
 </script>

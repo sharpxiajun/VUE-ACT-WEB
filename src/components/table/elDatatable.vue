@@ -202,7 +202,6 @@
     components: {
       DataTables
     },
-
     data() {
       return {
         tableData: [],

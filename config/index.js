@@ -6,8 +6,8 @@ module.exports = {
     env: require('./prod.env'),
     index: path.resolve(__dirname, '../dist/index.html'),
     assetsRoot: path.resolve(__dirname, '../dist'),
-    assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    assetsSubDirectory: 'static',// 这个目录不要随便改，要不生成的目录会发生变化
+    assetsPublicPath: '/VUE-ACT-WEB/dist/',//会替换js和css引入的路径，这个在开发时候要注意
     productionSourceMap: true,
     // Gzip off by default as many popular static hosts such as
     // Surge or Netlify already gzip all static assets for you.
@@ -19,7 +19,8 @@ module.exports = {
     // View the bundle analyzer report after build finishes:
     // `npm run build --report`
     // Set to `true` or `false` to always turn it on or off
-    bundleAnalyzerReport: process.env.npm_config_report
+    bundleAnalyzerReport: process.env.npm_config_report,
+    entryAppJs:'./src/main.js'
   },
   dev: {
     env: require('./dev.env'),
@@ -28,11 +29,41 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {},
+    /*proxyTable: {
+      '/VUE-ACT-WEB': {
+        target: 'http://www.taobao.com',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/VUE-ACT-WEB': ''
+        }
+      }
+    },*/
     // CSS Sourcemaps off by default because relative paths are "buggy"
     // with this option, according to the CSS-Loader README
     // (https://github.com/webpack/css-loader#sourcemaps)
     // In our experience, they generally work as expected,
     // just be aware of this issue when enabling this option.
-    cssSourceMap: false
+    cssSourceMap: false,
+    entryAppJs:'./src/main.js'
+  },
+  devElem: {
+    env: require('./dev.elem'),
+    port: 8033,
+    autoOpenBrowser: true,
+    assetsSubDirectory: 'static',
+    assetsPublicPath: '/',
+    proxyTable: {},
+    // 以下配置可以做服务端和客户端联调测试，注意：联调时候要把main.js中的模拟数据注释掉
+    /*proxyTable: {
+       '/VUE-ACT-ELEMENTUI/': {
+        target: 'http://localhost:8080',
+        changeOrigin: true,
+        pathRewrite: {
+       '^/VUE-ACT-ELEMENTUI': ''
+        }
+       }
+     },*/
+    cssSourceMap: false,
+    entryAppJs:'./src/mainElem.js'
   }
 }
